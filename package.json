@@ -1,0 +1,17 @@
+{
+  "name": "censusv2",
+  "version": "1.0.0",
+  "description": "Simple polling app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Jeremy Sao",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.7",
+    "pug": "^2.0.0-rc.4"
+  }
+}

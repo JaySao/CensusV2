@@ -1,0 +1,10 @@
+html
+  head
+    title="Poll"
+  body
+    ul
+      each poll, i in polls
+        a(href='/poll/'+poll._id)= poll.question
+        li= polls[i].question
+        li= polls[i].choices
+        br

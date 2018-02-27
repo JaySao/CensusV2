@@ -1,0 +1,25 @@
+html
+  head
+    title="Poll"
+  body
+    h1 Welcome to the poll view page
+    h2= poll.question
+    form(method="POST", action='/poll/'+poll._id)
+      input(type="radio" value="0" name="choice")
+      p=poll.choices[0]
+      input(type="radio" value="1" name="choice")
+      p=poll.choices[1]
+      input(type="radio" value="2" name="choice")
+      p=poll.choices[2]
+      input(type="radio" value="3" name="choice")
+      p=poll.choices[3]
+      input(type="submit" value="Vote")
+    
+    
+    
+    //- ul
+    //-   input(type="radio")= poll.choices[0]
+    //-   li= poll.choices[1]
+    //-   li= poll.choices[2]
+    //-   li= poll.choices[3]
+    

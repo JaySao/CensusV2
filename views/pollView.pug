@@ -14,12 +14,5 @@ html
       input(type="radio" value="3" name="choice")
       p=poll.choices[3]
       input(type="submit" value="Vote")
-    
-    
-    
-    //- ul
-    //-   input(type="radio")= poll.choices[0]
-    //-   li= poll.choices[1]
-    //-   li= poll.choices[2]
-    //-   li= poll.choices[3]
-    
+    a(href='/poll/results/'+poll._id)
+      button(type="button") View Results

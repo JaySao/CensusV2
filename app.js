@@ -50,6 +50,7 @@ app.get('/', (req, res)=>{
   })
 });
 
+//Voting Page
 app.post('/poll/:id', (req,res)=>{
   let query = {_id:req.params.id}
   console.log(req.body.choice);
@@ -103,17 +104,22 @@ app.post('/poll/:id', (req,res)=>{
   }else{
     alert("Please check a box!");
   }
-  // Poll.update(query, {question:"Newest question"},(err)=>{
-  //   if(err){
-  //     console.log(err);
-  //     return;
-  //   }
-  //   else{
-  //     res.redirect('/poll');
-  //   }
-  // })
 });
 
+//Results
+app.get('/poll/results/:id', (req, res)=>{
+  Poll.findById(req.params.id, (err, poll)=>{
+    console.log(poll);
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.render('results',{
+        poll: poll
+      });
+    }
+  })
+});
 
 app.post('/', (req,res)=>{
   console.log('Post recieved');
@@ -131,6 +137,7 @@ app.post('/', (req,res)=>{
       console.log(err);
       return;
     }
+    //TODO: Add success page and redirect with link to view results
     else{
       res.redirect('/poll');
     }

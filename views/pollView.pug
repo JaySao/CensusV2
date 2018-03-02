@@ -1,18 +1,37 @@
 html
   head
     title="Poll"
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
   body
-    h1 Welcome to the poll view page
-    h2= poll.question
-    form(method="POST", action='/poll/'+poll._id)
-      input(type="radio" value="0" name="choice")
-      p=poll.choices[0]
-      input(type="radio" value="1" name="choice")
-      p=poll.choices[1]
-      input(type="radio" value="2" name="choice")
-      p=poll.choices[2]
-      input(type="radio" value="3" name="choice")
-      p=poll.choices[3]
-      input(type="submit" value="Vote")
-    a(href='/poll/results/'+poll._id)
-      button(type="button") View Results
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+      a.navbar-brand(href='#') Census
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='./make') Make
+    div.container
+      h1 Welcome to the poll view page
+      h2= poll.question
+      form(method="POST", action='/poll/'+poll._id)
+        input.d-inline-block(type="radio" value="0" name="choice")
+        p.d-inline-block=poll.choices[0]
+        br
+        input(type="radio" value="1" name="choice")
+        p.d-inline-block=poll.choices[1]
+        br
+        input.d-inline-block(type="radio" value="2" name="choice")
+        p.d-inline-block=poll.choices[2]
+        br
+        input.d-inline-block(type="radio" value="3" name="choice")
+        p.d-inline-block=poll.choices[3]
+        br
+        input.btn(type="submit" value="Vote")
+      a(href='/poll/results/'+poll._id)
+        button.btn(type="button") View Results
+  script(src='/bower_components/jquery/dist/jquery.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.js')

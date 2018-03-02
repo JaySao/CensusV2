@@ -1,0 +1,43 @@
+<!DOCTYPE HTML5>
+<html>
+  <head>
+    <title>Welcome to Census</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css'></link>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">Census</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./make">Make</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to Census!</h1>
+        <p>Create simple, anonymous polls instantly with no sign up required!</p>
+        <form method="get" action="/make">
+          <button class="btn-primary" type="submit">Get Started</button>
+        </form>
+      </div>
+    </div>
+
+
+  </body>
+
+  <script src='/bower_components/jquery/dist/jquery.js'></script>
+  <script src='/bower_components/bootstrap/dist/js/bootstrap.js'></script>
+</html>

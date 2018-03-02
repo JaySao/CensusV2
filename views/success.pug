@@ -1,7 +1,24 @@
 html
   head
     title Success!
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
   body
-    h1 Your poll has been created!
-    p You can access your poll by using the link:
-    a(href='/poll/'+poll._id) Here
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+      a.navbar-brand(href='#') Census
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='./make') Make
+    div.container
+      h1 Your poll has been created!
+      p You can access your poll and share it by using the link:
+      a(href='/poll/'+poll._id) Here
+      p Or you can view the results:
+      a(href='/poll/results/'+poll._id) View Results
+  script(src='/bower_components/jquery/dist/jquery.js')
+  script(src='/bower_components/bootstrap/dist/js/bootstrap.js')

@@ -16,7 +16,10 @@ let pollSchema = mongoose.Schema({
   },
   key:{
     type:String,
-    required:true
+    required:false
+  },
+  audit:{
+    createDate: { type:Date, expires: 5}
   }
 });
 

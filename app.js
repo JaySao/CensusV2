@@ -13,6 +13,8 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+//Public Directory
+app.use(express.static(path.join(__dirname, 'public')));
 //Database
 mongoose.connect('mongodb://localhost/censusdb');
 let db = mongoose.connection;
@@ -30,6 +32,11 @@ let Poll = require('./models/poll');
 
 
 //Routes
+app.get('/', (req,res)=>{
+  res.sendFile('/public/index.html');
+});
+
+
 app.get('/poll/:id', (req, res)=>{
   Poll.findById(req.params.id, (err, poll)=>{
     console.log(poll);
@@ -43,8 +50,8 @@ app.get('/poll/:id', (req, res)=>{
     }
   })
 });
-app.get('/', (req, res)=>{
-  res.render('index', {
+app.get('/make', (req, res)=>{
+  res.render('make', {
     title: 'Census Landing Page',
     message:'Make a Poll'
   })
@@ -62,7 +69,7 @@ app.post('/poll/:id', (req,res)=>{
         return;
       }
       else{
-        res.redirect('/poll');
+        res.redirect('/poll/results/'+req.params.id);
       }
     })
   }
@@ -74,7 +81,7 @@ app.post('/poll/:id', (req,res)=>{
         return;
       }
       else{
-        res.redirect('/poll');
+        res.redirect('/poll/results/'+req.params.id);
       }
     })
   }
@@ -86,7 +93,7 @@ app.post('/poll/:id', (req,res)=>{
         return;
       }
       else{
-        res.redirect('/poll');
+        res.redirect('/poll/results/'+req.params.id);
       }
     })
   }
@@ -98,7 +105,7 @@ app.post('/poll/:id', (req,res)=>{
         return;
       }
       else{
-        res.redirect('/poll');
+        res.redirect('/poll/results/'+req.params.id);
       }
     })
   }else{
@@ -121,11 +128,10 @@ app.get('/poll/results/:id', (req, res)=>{
   })
 });
 
-app.post('/', (req,res)=>{
+app.post('/make', (req,res)=>{
   console.log('Post recieved');
   let poll = new Poll();
   poll.question = req.body.question;
-  console.log(poll.question);
   poll.choices[0]=String(req.body.answer0);
   poll.choices[1]=String(req.body.answer1);
   poll.choices[2]=String(req.body.answer2);
@@ -139,10 +145,24 @@ app.post('/', (req,res)=>{
     }
     //TODO: Add success page and redirect with link to view results
     else{
-      res.redirect('/poll');
+      console.log(poll._id);
+      res.redirect('/success/'+poll._id);
     }
   })
 });
+
+app.get('/success/:id',(req, res)=>{
+  Poll.findById(req.params.id, (err, poll)=>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.render('success',{
+        poll: poll
+      })
+    }
+  })
+})
 
 app.get('/poll',(req,res)=>{
   Poll.find({},(err, polls)=>{

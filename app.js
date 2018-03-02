@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 //Public Directory
 app.use(express.static(path.join(__dirname, 'public')));
 //Database
-mongoose.connect('mongodb://localhost/censusdb');
+mongoose.connect('localhost/censusdb');
 let db = mongoose.connection;
 db.on('error', (err)=>{
   console.log(err);

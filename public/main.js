@@ -1,4 +1,6 @@
 $(document).ready(()=>{
+  let url = window.location.href;
+  let pollLink = url.replace("results/","");
   let total = $('#total').text();
   let ans0 = $('#result0').text();
   let ans1 = $('#result1').text();
@@ -9,4 +11,5 @@ $(document).ready(()=>{
   $('#bar1').css({"width":(ans1/total)*100+"%"});
   $('#bar2').css({"width":(ans2/total)*100+"%"});
   $('#bar3').css({"width":(ans3/total)*100+"%"});
+  $('#url').val(pollLink);
 });

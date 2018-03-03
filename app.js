@@ -16,7 +16,9 @@ app.use(bodyParser.json())
 //Public Directory
 app.use(express.static(path.join(__dirname, 'public')));
 //Database
-mongoose.connect('localhost/censusdb');
+//To run on localhost on Windows use mongodb://localhost:27017/censusdb
+//To run on Digital Ocean use mongodb://localhost/censusdb
+mongoose.connect('mongodb://localhost:27017/censusdb');
 let db = mongoose.connection;
 db.on('error', (err)=>{
   console.log(err);

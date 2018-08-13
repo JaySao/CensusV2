@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const port = 3000;
+const port = 3001;
 
 //View engine
 app.set('views', path.join(__dirname, 'views'));

@@ -1,43 +1,11 @@
-html
-  head
-    title= title
-    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
-      a.navbar-brand(href='#') Census
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarsExampleDefault.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            a.nav-link(href='/') Home
-          span.sr-only (current)
-          li.nav-item
-            a.nav-link.active(href='./make') Make
-    div.container
-      h1=message
-      form(method='POST', action='/make' name="form1")
-        #form-group
-          label Question:
-          input.form-control(name='question', type='text' required)
-        #form-group
-          label Answer1:
-          input.form-control(name='answer0', type='text' required)
-        #form-group
-          label Answer2:
-          input.form-control(name='answer1', type='text' required)
-        #form-group
-          label Answer3:
-          input.form-control(name='answer2', type='text' required)
-        #form-group
-          label Answer4:
-          input.form-control(name='answer3', type='text' required)
-        //- #form-group
-        //-   label key:
-        //-   input.form-control(name='key', type='text')
-        br
-        input.btn.btn-primary(type='submit', value='Create!')
 
-  script(src='/bower_components/jquery/dist/jquery.js')
-  script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+<div class="container">
+    <h1></h1>
+    <form method="POST" action="/make" name="form1">
+        <div id="form-group"><label>Question:</label><input class="form-control" name="question" type="text" required="required" /></div>
+        <div id="form-group"><label>Answer1:</label><input class="form-control" name="answer0" type="text" required="required" /></div>
+        <div id="form-group"><label>Answer2:</label><input class="form-control" name="answer1" type="text" required="required" /></div>
+        <div id="form-group"><label>Answer3:</label><input class="form-control" name="answer2" type="text" required="required" /></div>
+        <div id="form-group"><label>Answer4:</label><input class="form-control" name="answer3" type="text" required="required" /></div><br/><input class="btn btn-primary" type="submit" value="Create!" /></form>
+</div>
+
